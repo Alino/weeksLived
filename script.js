@@ -1,6 +1,7 @@
 const calculateBtn = document.querySelector("#calculate-btn");
 const birthdateInput = document.querySelector("#birthdate");
 const checkboxesContainer = document.querySelector("#checkboxes-container");
+const h1 = document.querySelector("#heading");
 
 const calculateWeeksLived = () => {
 	const birthdate = new Date(birthdateInput.value);
@@ -8,6 +9,10 @@ const calculateWeeksLived = () => {
 
 	const millisecondsLived = now.getTime() - birthdate.getTime();
 	const weeksLived = Math.floor(millisecondsLived / (1000 * 60 * 60 * 24 * 7));
+    const weeksRemaining = (52 * 90) - weeksLived;
+    h1.innerText = `You lived: ${weeksLived} weeks and you have ${weeksRemaining} left until 90 years old`;
+
+    
 
 	displayCheckboxes(weeksLived);
 };
